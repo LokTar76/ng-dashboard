@@ -4,11 +4,10 @@ import { Server } from '../shared/server';
 @Component({
   selector: 'app-server',
   templateUrl: './server.component.html',
-  styleUrls: ['./server.component.css']
+  styleUrls: ['./server.component.css'],
 })
 export class ServerComponent implements OnInit {
-
-  constructor() { }
+  constructor() {}
 
   color!: string;
   buttonText!: string;
@@ -35,5 +34,4 @@ export class ServerComponent implements OnInit {
   toggleStatus(onlineStatus: boolean) {
     this.setServerStatus(!onlineStatus);
   }
-
 }
