@@ -29,7 +29,7 @@ export class PieChartComponent implements OnInit {
       }
     ]
   };
-  public pieChartType: ChartType = 'pie';
+  public pieChartType: ChartType = 'doughnut';
   public colors: any[] = [
     {
       backgroundColor: ['#26547c', '#ff6b6b', '#ffd166'],
