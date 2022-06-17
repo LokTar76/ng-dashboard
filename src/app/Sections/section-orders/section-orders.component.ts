@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Order } from 'src/app/shared/order';
+import { Review } from 'src/app/shared/review';
+import { ReviewService } from 'src/app/review.service';
 
 @Component({
   selector: 'app-section-orders',
@@ -8,34 +9,17 @@ import { Order } from 'src/app/shared/order';
   styleUrls: ['./section-orders.component.css'],
 })
 export class SectionOrdersComponent implements OnInit {
-  constructor() { }
+  constructor(private reviewService: ReviewService) { }
 
-  orders: Order[] = [
-    {
-      id: 1,
-      customer: {
-        id: 1,
-        name: 'Main St Bakery',
-        email: 'mainst@test.com',
-        state: 'NSW'
-      },
-      total: 230,
-      placed: new Date(2022, 6, 15),
-      fulfilled: new Date(2022, 6, 16)
-    },
-    {
-      id: 2,
-      customer: {
-        id: 1,
-        name: 'Main St Bakery',
-        email: 'mainst@test.com',
-        state: 'NSW'
-      },
-      total: 230,
-      placed: new Date(2022, 6, 15),
-      fulfilled: new Date(2022, 6, 16)
-    }
-  ];
+  reviews: Review[] = [];
 
-  ngOnInit(): void {}
+
+  ngOnInit(): void {
+    this.getReviews();
+  }
+
+  getReviews(): void {
+    this.reviewService.getReviews()
+      .subscribe(reviews => this.reviews = reviews);
+  }
 }
